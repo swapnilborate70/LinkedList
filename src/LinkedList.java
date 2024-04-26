@@ -107,132 +107,101 @@ public class LinkedList<T> {
         if (head == null) {
             throw new NullPointerException("The list is empty");
 
-        }
-        else
-        {
+        } else {
             boolean returnValue = false;
 
-            if (head.data.equals(element))
-            {
-                if(head.next==null)
-                {
+            if (head.data.equals(element)) {
+                if (head.next == null) {
                     head = null;
                     returnValue = true;
-                }
-                else
-                {
-                    head=head.next;
+                } else {
+                    head = head.next;
                     returnValue = true;
                 }
 
-            }
-            else
-            {
+            } else {
                 Node<T> current = head;
 
-                while (current.next != null)
-                {
-                    if(current.next.data.equals(element))
-                    {
-                        if(current.next.next == null)
-                        {
-                            current.next=null;
-                            returnValue=true;
+                while (current.next != null) {
+                    if (current.next.data.equals(element)) {
+                        if (current.next.next == null) {
+                            current.next = null;
+                            returnValue = true;
                             break;
-                        }
-                        else
-                        {
-                            current.next=current.next.next;
-                            returnValue=true;
+                        } else {
+                            current.next = current.next.next;
+                            returnValue = true;
                             break;
                         }
                     }
-                    current=current.next;
+                    current = current.next;
                 }
             }
             return returnValue;
         }
     }
 
-    public void clear()
-    {
-        head=null;
+    public void clear() {
+        head = null;
     }
 
-    public boolean contains(T element)
-    {
+    public boolean contains(T element) {
         if (head == null) {
             throw new NullPointerException("The list is empty");
-        }
-        else
-        {
+        } else {
             boolean returnValue = false;
             Node<T> current = head;
-            while (current != null)
-            {
-                if(current.data.equals(element))
-                {
+            while (current != null) {
+                if (current.data.equals(element)) {
                     returnValue = true;
                     break;
                 }
-                current=current.next;
+                current = current.next;
             }
             return returnValue;
         }
     }
 
 
-    public int indexOf(T element)
-    {
+    public int indexOf(T element) {
         if (head == null) {
             throw new NullPointerException("The list is empty");
-        }
-        else
-        {
+        } else {
             int index = -1;
             boolean isEquals = false;
 
             Node<T> current = head;
-            while (current != null)
-            {
+            while (current != null) {
                 index++;
-                if(current.data.equals(element))
-                {
-                    isEquals=true;
+                if (current.data.equals(element)) {
+                    isEquals = true;
                     break;
                 }
-                current=current.next;
+                current = current.next;
             }
 
-            if(isEquals)
-            {
+            if (isEquals) {
                 return index;
-            }
-            else
-            {
+            } else {
                 return -1;
             }
         }
     }
 
-    public T get(int index)
-    {
+    public T get(int index) {
         Node<T> current = head;
         int currentIndex = 0;
         T returnValue = null;
 
-        while (current!= null)
-        {
-            if(index==currentIndex)
-            {
+        while (current != null) {
+            if (index == currentIndex) {
                 returnValue = current.data;
                 break;
             }
             currentIndex++;
-            current=current.next;
+            current = current.next;
         }
-        if(current==null)
-        {
+        if (current == null) {
             throw new IndexOutOfBoundsException("provided index is out of list index range");
         }
         return returnValue;

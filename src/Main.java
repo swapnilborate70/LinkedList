@@ -1,9 +1,7 @@
 
-public class Main
-{
+public class Main {
 
-    public static void main(String[] args)
-    {
+    public static void main(String[] args) {
 
         LinkedList<Integer> linkedList = new LinkedList<>();
 
@@ -13,7 +11,6 @@ public class Main
         linkedList.add(40);
         linkedList.add(50);
         linkedList.add(60);
-
 
 
         System.out.println(linkedList.get(3));
